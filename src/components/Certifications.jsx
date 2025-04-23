@@ -96,17 +96,21 @@ function Certifications() {
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
         {certificates.map((cert) => (
           <div key={cert.id} className='bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow'>
-            {/* PDF Thumbnail */}
-            <div className='h-48 bg-gray-100 flex flex-col items-center justify-center p-4'>
-              <FaFilePdf className='text-red-500 text-6xl mb-4' />
-              <p className='text-gray-600 text-center font-medium'>{cert.title}</p>
-              <p className='text-gray-500 text-sm text-center'>{cert.issuer}</p>
-            </div>
             
+            {/* PDF Preview with iframe */}
+            <div className='h-74 bg-gray-100 flex items-center justify-center p-2'>
+              <iframe
+                src={cert.pdfFile + "#toolbar=0&navpanes=0&scrollbar=0"}
+                title={cert.title}
+                className='w-full h-full rounded'
+                frameBorder="0"
+              />
+            </div>
+
             {/* Certificate Content */}
             <div className='p-6'>
               <p className='text-gray-500 text-sm mb-4'>{cert.date}</p>
-              
+
               {/* Categories */}
               <div className='flex flex-wrap gap-2 mb-6'>
                 {cert.categories.map((category, index) => (
@@ -115,19 +119,19 @@ function Certifications() {
                   </span>
                 ))}
               </div>
-              
+
               {/* Buttons */}
               <div className='flex gap-3'>
-                <a 
+                <a
                   href={cert.pdfFile}
                   download
                   className='flex-1 flex items-center justify-center gap-2 bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition text-sm'
                 >
                   <FaDownload /> Download
                 </a>
-                <a 
+                <a
                   href={cert.pdfFile}
-                  target="_blank" 
+                  target="_blank"
                   rel="noopener noreferrer"
                   className='flex-1 flex items-center justify-center gap-2 border border-gray-800 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-100 transition text-sm'
                 >

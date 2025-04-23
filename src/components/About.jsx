@@ -5,6 +5,16 @@ import { TbBrandLinkedinFilled } from "react-icons/tb";
 import { RiTwitterXLine } from "react-icons/ri";
 
 function About() {
+  const handleScroll = (e, sectionId) => {
+    e.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
   return (
     <div className='px-10 py-20 max-w-7xl mx-auto'>
         <div className='mb-16 text-center'>
@@ -41,10 +51,10 @@ function About() {
           {/* action button */}
           <div className='flex gap-4'>
             <button className='bg-gray-800 text-white px-6 py-2 rounded-lg hover:bg-gray-700 transition'>
-              <a href="">Resume</a>
+              <a href="#resume_section" onClick={(e) => {handleScroll(e, 'resume_section')}}>Resume</a>
             </button>
             <button className='border border-gray-800 px-6 py-2 rounded-lg hover:bg-gray-100 transition'>
-              <a href="">Projects</a>
+              <a href="#projects_section" onClick={(e) => {handleScroll(e, 'projects_section')}}>Projects</a>
             </button>
           </div>
         </div>
