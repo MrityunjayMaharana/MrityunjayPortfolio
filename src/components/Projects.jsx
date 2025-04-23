@@ -19,7 +19,7 @@ function Projects() {
       description: "Interactive visualization tool demonstrating various sorting algorithms with real-time animations and performance metrics.",
       technologies: ["React", "JavaScript", "CSS", "D3.js"],
       githubLink: "https://github.com/MrityunjayMaharana/sorting-visualizer",
-      liveLink: "#",
+      liveLink: "https://mrityunjaymaharana.github.io/Sorting-Visualizer-App/",
       imagePath: p
     },
     {
