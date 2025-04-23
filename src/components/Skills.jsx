@@ -1,4 +1,11 @@
 import React from 'react'
+import {
+  FaJava, FaPython, FaPhp, FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaGitAlt, FaGithub, FaWindows, FaLinux, FaApple,
+  FaBootstrap, FaLaravel, FaJsSquare
+} from 'react-icons/fa'
+import { SiCplusplus, SiMongodb, SiPostgresql, SiExpress, SiTailwindcss, SiMysql } from 'react-icons/si'
+import { MdOutlineLaptopChromebook } from 'react-icons/md'
+import { BsDiagram3, BsPersonGear, BsPersonWorkspace } from 'react-icons/bs'
 
 function Skills() {
   return (
@@ -9,105 +16,76 @@ function Skills() {
       </div>
 
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+        
         {/* Programming Languages */}
-        <div className='bg-white p-6 rounded-xl shadow-md border border-gray-100'>
-          <h3 className='text-xl font-semibold text-green-700 mb-4 flex items-center'>
-            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-            </svg>
-            Programming Languages
-          </h3>
-          <div className='flex flex-wrap gap-3'>
-            <span className='bg-green-100 px-4 py-2 rounded-full text-gray-800'>C++ (proficient)</span>
-            <span className='bg-green-100 px-4 py-2 rounded-full text-gray-800'>Java</span>
-            <span className='bg-green-100 px-4 py-2 rounded-full text-gray-800'>Python</span>
-            <span className='bg-green-100 px-4 py-2 rounded-full text-gray-800'>JavaScript</span>
-            <span className='bg-green-100 px-4 py-2 rounded-full text-gray-800'>PHP</span>
-            <span className='bg-green-100 px-4 py-2 rounded-full text-gray-800'>HTML</span>
-            <span className='bg-green-100 px-4 py-2 rounded-full text-gray-800'>CSS</span>
-          </div>
-        </div>
+        <SkillCard title="Programming Languages" icon={<BsDiagram3 />} skills={[
+          { name: 'C++ (proficient)', icon: <SiCplusplus /> },
+          { name: 'Java', icon: <FaJava /> },
+          { name: 'Python', icon: <FaPython /> },
+          { name: 'JavaScript', icon: <FaJsSquare /> },
+          { name: 'PHP', icon: <FaPhp /> },
+          { name: 'HTML', icon: <FaHtml5 /> },
+          { name: 'CSS', icon: <FaCss3Alt /> }
+        ]} />
 
-        {/* Frameworks */}
-        <div className='bg-white p-6 rounded-xl shadow-md border border-gray-100'>
-          <h3 className='text-xl font-semibold text-green-700 mb-4 flex items-center'>
-            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-            </svg>
-            Frameworks & Databases
-          </h3>
-          <div className='flex flex-wrap gap-3'>
-            <span className='bg-green-100 px-4 py-2 rounded-full text-gray-800'>React</span>
-            <span className='bg-green-100 px-4 py-2 rounded-full text-gray-800'>MongoDB</span>
-            <span className='bg-green-100 px-4 py-2 rounded-full text-gray-800'>PostgreSQL</span>
-            <span className='bg-green-100 px-4 py-2 rounded-full text-gray-800'>Node.js</span>
-            <span className='bg-green-100 px-4 py-2 rounded-full text-gray-800'>Express</span>
-            <span className='bg-green-100 px-4 py-2 rounded-full text-gray-800'>Laravel</span>
-            <span className='bg-green-100 px-4 py-2 rounded-full text-gray-800'>Tailwind</span>
-            <span className='bg-green-100 px-4 py-2 rounded-full text-gray-800'>Bootstrap</span>
-          </div>
-        </div>
+        {/* Frameworks & Databases */}
+        <SkillCard title="Frameworks & Databases" icon={<MdOutlineLaptopChromebook />} skills={[
+          { name: 'React', icon: <FaReact /> },
+          { name: 'MongoDB', icon: <SiMongodb /> },
+          { name: 'PostgreSQL', icon: <SiPostgresql /> },
+          { name: 'Node.js', icon: <FaNodeJs /> },
+          { name: 'Express', icon: <SiExpress /> },
+          { name: 'Laravel', icon: <FaLaravel /> },
+          { name: 'Tailwind', icon: <SiTailwindcss /> },
+          { name: 'Bootstrap', icon: <FaBootstrap /> }
+        ]} />
 
         {/* Core Subjects */}
-        <div className='bg-white p-6 rounded-xl shadow-md border border-gray-100'>
-          <h3 className='text-xl font-semibold text-green-700 mb-4 flex items-center'>
-            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-            </svg>
-            Core Subjects
-          </h3>
-          <div className='flex flex-wrap gap-3'>
-            <span className='bg-green-100 px-4 py-2 rounded-full text-gray-800'>Operating Systems</span>
-            <span className='bg-green-100 px-4 py-2 rounded-full text-gray-800'>Computer Networking</span>
-            <span className='bg-green-100 px-4 py-2 rounded-full text-gray-800'>DBMS</span>
-            <span className='bg-green-100 px-4 py-2 rounded-full text-gray-800'>Automata Theory</span>
-          </div>
-        </div>
+        <SkillCard title="Core Subjects" icon={<BsPersonWorkspace />} skills={[
+          { name: 'Operating Systems', icon: <FaWindows /> },
+          { name: 'Computer Networking', icon: <BsDiagram3 /> },
+          { name: 'DBMS', icon: <SiMysql /> },
+          { name: 'Automata Theory', icon: <BsDiagram3 /> }
+        ]} />
 
         {/* Version Control */}
-        <div className='bg-white p-6 rounded-xl shadow-md border border-gray-100'>
-          <h3 className='text-xl font-semibold text-green-700 mb-4 flex items-center'>
-            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
-            </svg>
-            Version Control
-          </h3>
-          <div className='flex flex-wrap gap-3'>
-            <span className='bg-green-100 px-4 py-2 rounded-full text-gray-800'>Git</span>
-            <span className='bg-green-100 px-4 py-2 rounded-full text-gray-800'>GitHub</span>
-          </div>
-        </div>
+        <SkillCard title="Version Control" icon={<FaGitAlt />} skills={[
+          { name: 'Git', icon: <FaGitAlt /> },
+          { name: 'GitHub', icon: <FaGithub /> }
+        ]} />
 
-        {/* Operating system */}
-        <div className='bg-white p-6 rounded-xl shadow-md border border-gray-100'>
-          <h3 className='text-xl font-semibold text-green-700 mb-4 flex items-center'>
-            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
-            </svg>
-            Operating Systems
-          </h3>
-          <div className='flex flex-wrap gap-3'>
-            <span className='bg-green-100 px-4 py-2 rounded-full text-gray-800'>Windows</span>
-            <span className='bg-green-100 px-4 py-2 rounded-full text-gray-800'>Linux</span>
-            <span className='bg-green-100 px-4 py-2 rounded-full text-gray-800'>MAC OS</span>
-          </div>
-        </div>
+        {/* Operating Systems */}
+        <SkillCard title="Operating Systems" icon={<MdOutlineLaptopChromebook />} skills={[
+          { name: 'Windows', icon: <FaWindows /> },
+          { name: 'Linux', icon: <FaLinux /> },
+          { name: 'MAC OS', icon: <FaApple /> }
+        ]} />
 
         {/* Soft Skills */}
-        <div className='bg-white p-6 rounded-xl shadow-md border border-gray-100'>
-          <h3 className='text-xl font-semibold text-green-700 mb-4 flex items-center'>
-            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>
-            Soft Skills
-          </h3>
-          <div className='flex flex-wrap gap-3'>
-            <span className='bg-green-100 px-4 py-2 rounded-full text-gray-800'>Problem Solving</span>
-            <span className='bg-green-100 px-4 py-2 rounded-full text-gray-800'>Time Management</span>
-            <span className='bg-green-100 px-4 py-2 rounded-full text-gray-800'>Communication</span>
-            <span className='bg-green-100 px-4 py-2 rounded-full text-gray-800'>Adaptability</span>
-          </div>
-        </div>
+        <SkillCard title="Soft Skills" icon={<BsPersonGear />} skills={[
+          { name: 'Problem Solving', icon: <BsPersonGear /> },
+          { name: 'Time Management', icon: <BsPersonGear /> },
+          { name: 'Communication', icon: <BsPersonGear /> },
+          { name: 'Adaptability', icon: <BsPersonGear /> }
+        ]} />
+
+      </div>
+    </div>
+  )
+}
+
+function SkillCard({ title, icon, skills }) {
+  return (
+    <div className='bg-white p-6 rounded-xl shadow-md border border-gray-100'>
+      <h3 className='text-xl font-semibold text-green-700 mb-4 flex items-center'>
+        <span className='mr-2 text-green-700'>{icon}</span> {title}
+      </h3>
+      <div className='flex flex-wrap gap-3'>
+        {skills.map((skill, index) => (
+          <span key={index} className='bg-green-100 px-4 py-2 rounded-full text-gray-800 flex items-center gap-2'>
+            <span className='text-green-700'>{skill.icon}</span> {skill.name}
+          </span>
+        ))}
       </div>
     </div>
   )

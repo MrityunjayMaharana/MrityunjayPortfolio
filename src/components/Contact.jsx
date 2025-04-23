@@ -1,50 +1,28 @@
-import React, { useState } from 'react';
-import { FaGithub, FaLinkedin, FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import React, { useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
+import { FaGithub, FaLinkedin, FaPhone, FaEnvelope } from 'react-icons/fa';
 
 function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
+  const form = useRef();
   const [submitted, setSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = async (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
     setIsLoading(true);
     setError(null);
 
-    try {
-      const response = await fetch('https://formspree.io/f/mrityunjaymaharana8@gmail.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
+    emailjs.sendForm('', '', form.current, '')
+      .then((result) => {
+        console.log(result.text);
         setSubmitted(true);
-        setFormData({ name: '', email: '', message: '' });
-      } else {
-        throw new Error('Failed to send message');
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setError('Failed to send message. Please try again later.');
-    } finally {
-      setIsLoading(false);
-    }
+        form.current.reset();
+      }, (error) => {
+        console.error(error.text);
+        setError('Something went wrong. Please try again later.');
+      })
+      .finally(() => setIsLoading(false));
   };
 
   return (
@@ -64,34 +42,27 @@ function Contact() {
               Thank you for your message! I'll get back to you soon.
             </div>
           ) : (
-            <form onSubmit={handleSubmit} noValidate>
+            <form ref={form} onSubmit={sendEmail} noValidate>
               {error && (
                 <div className='bg-red-100 text-red-800 p-4 rounded-lg mb-6'>
                   {error}
                 </div>
               )}
-              
               <div className='mb-6'>
-                <label htmlFor="name" className='block text-gray-700 mb-2'>Your Name</label>
+                <label htmlFor="user_name" className='block text-gray-700 mb-2'>Your Name</label>
                 <input
                   type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
+                  name="user_name"
                   required
                   className='w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500'
                 />
               </div>
 
               <div className='mb-6'>
-                <label htmlFor="email" className='block text-gray-700 mb-2'>Your Email</label>
+                <label htmlFor="user_email" className='block text-gray-700 mb-2'>Your Email</label>
                 <input
                   type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
+                  name="user_email"
                   required
                   className='w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500'
                 />
@@ -100,10 +71,7 @@ function Contact() {
               <div className='mb-6'>
                 <label htmlFor="message" className='block text-gray-700 mb-2'>Your Message</label>
                 <textarea
-                  id="message"
                   name="message"
-                  value={formData.message}
-                  onChange={handleChange}
                   required
                   rows="5"
                   className='w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500'
@@ -123,10 +91,9 @@ function Contact() {
           )}
         </div>
 
-        {/* Contact Info */}
+        {/* Contact Info - Same as Before */}
         <div className='bg-white p-6 sm:p-8 rounded-xl shadow-md border border-gray-100'>
           <h3 className='text-xl sm:text-2xl font-semibold text-green-700 mb-6'>Contact Information</h3>
-          
           <div className='space-y-6'>
             <div className='flex items-start'>
               <div className='bg-green-100 p-3 rounded-full mr-4 flex-shrink-0'>
