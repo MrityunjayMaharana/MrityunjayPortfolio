@@ -49,9 +49,16 @@ function Resume() {
     },
     {
       degree: "Senior Secondary (12th)",
-      institution: "Kendriya Vidyalaya",
+      institution: "Kendriya Vidyalaya Charbatia, Odisha",
       duration: "2022",
       percentage: "Percentage: 86%",
+      icon: <FaGraduationCap className="text-green-600 text-xl" />
+    },
+    {
+      degree: "Marticulation (10th)",
+      institution: "Kendriya Vidyalaya No.4 Jaipur",
+      duration: "2020",
+      percentage: "Percentage: 87%",
       icon: <FaGraduationCap className="text-green-600 text-xl" />
     }
   ];
