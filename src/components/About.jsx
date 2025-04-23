@@ -41,7 +41,7 @@ function About() {
             <div className='space-y-4'>
               <span className='inline-block bg-green-100 px-6 py-2 rounded-full text-gray-800'>Full-Stack Development</span>&nbsp;
               <span className='inline-block bg-green-100 px-6 py-2 rounded-full text-gray-800'>IOS Development</span>
-              <span className='inline-block bg-green-100 px-6 py-2 rounded-full text-gray-800'>Cloud Computing</span>
+              <span className='inline-block bg-green-100 px-6 py-2 rounded-full text-gray-800'>UX / UI Designer</span>
             </div>
             <p className='text-lg sm:text-xl text-gray-700'>
               I'm deeply committed to building innovative and scalable applications that tackle real-world problems through technology.
